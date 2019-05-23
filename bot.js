@@ -8,6 +8,7 @@ function respond() {
       botRegex = /(BOBBY B)/i;
 
   if(request.text && botRegex.test(request.text)) {
+    sleep(10000)
     this.res.writeHead(200);
     postMessage();
     this.res.end();
@@ -53,6 +54,13 @@ function postMessage() {
   botReq.end(JSON.stringify(body));
 }
 
-
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}
 
 exports.respond = respond;
