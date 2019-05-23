@@ -22,7 +22,7 @@ function respond() {
 function postMessage() {
   var botResponse, options, body, botReq;
 
-  botResponse = "BOW YA SHITS";
+  botResponse = getRandomLine("responses.txt");
 
   options = {
     hostname: 'api.groupme.com',
@@ -61,6 +61,14 @@ function sleep(milliseconds) {
       break;
     }
   }
+}
+
+function getRandomLine(filename){
+  fs.readFile(filename, function(err, data){
+    if(err) throw err;
+    var lines = data.split('\n');
+    return lines[Math.floor(Math.random()*lines.length)];
+ })
 }
 
 exports.respond = respond;
