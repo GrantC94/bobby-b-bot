@@ -8,7 +8,7 @@ function respond() {
       botRegex = /(BOBBY B)/i;
 
   if(request.text && botRegex.test(request.text)) {
-    sleep(10000)
+    sleep(2000)
     this.res.writeHead(200);
     postMessage();
     this.res.end();
