@@ -23,6 +23,7 @@ function postMessage() {
   var botResponse, options, body, botReq;
 
   botResponse = getRandomLine("responses.txt");
+  sleep(200)
   console.log("bot response follows: ")
   console.log(botResponse)
   options = {
@@ -64,7 +65,7 @@ function sleep(milliseconds) {
   }
 }
 
-function getRandomLine(filename){
+function getRandomLine(filename) {
   var data = ""
   fs.readFile(filename, function(err, data){
     if(err) throw err;
