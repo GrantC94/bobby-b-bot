@@ -22,15 +22,8 @@ function respond() {
 function postMessage() {
   var botResponse, options, body, botReq;
 
-  fs.readFile(filename, function(err, data){
-  if(err) throw err;
-  var lines = data.toString().split('\n');
-  console.log(lines);
-  
-  botResponse = lines[Math.floor(Math.random()*lines.length)];
-  sleep(200)
-  console.log("bot response follows: ")
-  console.log(botResponse)
+  botResponse = getRandomLine("responses.txt");
+
   options = {
     hostname: 'api.groupme.com',
     path: '/v3/bots/post',
@@ -72,7 +65,7 @@ function sleep(milliseconds) {
 
 function getRandomLine(filename) {
   var data = ""
-  fs.readFile(filename, function(err, data){
+  return fs.readFile(filename, function(err, data){
     if(err) throw err;
     var lines = data.toString().split('\n');
     console.log(lines);
