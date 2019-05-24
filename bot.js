@@ -23,7 +23,8 @@ function postMessage() {
   var botResponse, options, body, botReq;
 
   botResponse = getRandomLine("responses.txt");
-
+  console.log("bot response follows: ")
+  console.log(botResponse)
   options = {
     hostname: 'api.groupme.com',
     path: '/v3/bots/post',
