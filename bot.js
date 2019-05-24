@@ -72,10 +72,10 @@ function getRandomLine(filename) {
     console.log(lines);
     var returner = lines[Math.floor(Math.random()*lines.length)];
     console.log(returner);
-    return returner;
  })
   console.log("Data follows")
   console.log(data)
+  return returner;
 }
 
 exports.respond = respond;
