@@ -10,7 +10,7 @@ function respond() {
   if(request.text && botRegex.test(request.text)) {
     sleep(2000)
     this.res.writeHead(200);
-    sendRandomLine("responses.txt")();
+    sendRandomLine("responses.txt");
     this.res.end();
   } else {
     console.log("don't care");
