@@ -68,6 +68,7 @@ function getRandomLine(filename){
   fs.readFile(filename, function(err, data){
     if(err) throw err;
     var lines = data.toString().split('\n');
+    console.log(lines)
     return lines[Math.floor(Math.random()*lines.length)];
  })
 }
