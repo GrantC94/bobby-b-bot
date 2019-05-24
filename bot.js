@@ -10,7 +10,7 @@ function respond() {
   if(request.text && botRegex.test(request.text)) {
     sleep(2000)
     this.res.writeHead(200);
-    postMessage();
+    sendRandomLine("responses.txt")();
     this.res.end();
   } else {
     console.log("don't care");
@@ -19,10 +19,10 @@ function respond() {
   }
 }
 
-function postMessage() {
+function postMessage(message) {
   var botResponse, options, body, botReq;
 
-  botResponse = getRandomLine("responses.txt");
+  botResponse = message;
 
   options = {
     hostname: 'api.groupme.com',
@@ -63,7 +63,7 @@ function sleep(milliseconds) {
   }
 }
 
-function getRandomLine(filename) {
+function sendRandomLine(filename) {
   var data = ""
   console.log("You are here")
   fs.readFile(filename, function(err, data){
@@ -71,11 +71,8 @@ function getRandomLine(filename) {
     var lines = data.toString().split('\n');
     console.log(lines);
     var returner = lines[Math.floor(Math.random()*lines.length)];
-    console.log(returner);
+    postMessage(returner);
  })
-  sleep(500)
-  console.log("Data follows")
-  console.log(data)
 }
 
 exports.respond = respond;
