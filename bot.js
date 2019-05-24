@@ -69,9 +69,7 @@ function sendRandomLine(filename) {
   fs.readFile(filename, function(err, data){
     if(err) throw err;
     var lines = data.toString().split('\n');
-    console.log(lines);
-    var returner = lines[Math.floor(Math.random()*lines.length)];
-    postMessage(returner);
+    postMessage(lines[Math.floor(Math.random()*lines.length)]);
  })
 }
 
