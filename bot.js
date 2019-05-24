@@ -22,7 +22,12 @@ function respond() {
 function postMessage() {
   var botResponse, options, body, botReq;
 
-  botResponse = getRandomLine("responses.txt");
+  fs.readFile(filename, function(err, data){
+  if(err) throw err;
+  var lines = data.toString().split('\n');
+  console.log(lines);
+  
+  botResponse = lines[Math.floor(Math.random()*lines.length)];
   sleep(200)
   console.log("bot response follows: ")
   console.log(botResponse)
