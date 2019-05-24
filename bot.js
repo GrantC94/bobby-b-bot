@@ -65,6 +65,7 @@ function sleep(milliseconds) {
 
 function getRandomLine(filename) {
   var data = ""
+  console.log("You are here")
   return fs.readFile(filename, function(err, data){
     if(err) throw err;
     var lines = data.toString().split('\n');
