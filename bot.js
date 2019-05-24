@@ -73,6 +73,8 @@ function getRandomLine(filename) {
     console.log(returner);
     return returner;
  })
+  console.log("Data follows")
+  console.log(data)
 }
 
 exports.respond = respond;
