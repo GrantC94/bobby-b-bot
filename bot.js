@@ -66,7 +66,7 @@ function sleep(milliseconds) {
 function getRandomLine(filename){
   fs.readFile(filename, function(err, data){
     if(err) throw err;
-    var lines = data.split('\n');
+    var lines = data[0].split('\n');
     return lines[Math.floor(Math.random()*lines.length)];
  })
 }
