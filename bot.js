@@ -33,6 +33,12 @@ function postMessage(message) {
   body = {
     "bot_id" : botID,
     "text" : botResponse
+    "attachments" : [
+      {
+        "type"  : "image",
+        "url"   : "https://i.imgur.com/hrCP6Uk.gifv"
+      }
+    ]
   };
 
   console.log('sending ' + botResponse + ' to ' + botID);
