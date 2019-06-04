@@ -29,11 +29,10 @@ function postMessage(message) {
     path: '/v3/bots/post',
     method: 'POST'
   };
-//"text" : botResponse
   
   body = {
     "bot_id" : botID,
-    "text" : "https://i.imgur.com/hrCP6Uk.gifv"
+    "text" : botResponse
   };
 
   console.log('sending ' + botResponse + ' to ' + botID);
